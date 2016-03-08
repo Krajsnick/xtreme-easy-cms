@@ -1,0 +1,14 @@
+doctype html
+html
+  head
+    title= title
+    link(href='/stylesheets/layout.css', rel='stylesheet', type='text/css')
+    link(href='https://fonts.googleapis.com/css?family=Open+Sans:400,300italic,400italic,600' rel='stylesheet' type='text/css')
+  body
+    section
+      aside: ul
+        li: a(href="/add") Add Article
+        each article in articles
+          li: a(href="#{article.slug}") #{article.title}
+      article
+        block content

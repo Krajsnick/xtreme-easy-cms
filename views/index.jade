@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  if mdArticle
+    
+    h1.article-title= mdArticle.title
+    != mdArticle.markdown
+    
+  else
+    h2 Markdown Easy CMS
+    p Why dont you add an article?
+  
