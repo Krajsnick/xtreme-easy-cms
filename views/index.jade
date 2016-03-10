@@ -1,8 +1,15 @@
 extends layout
 
+block title
+  if mdArticle
+    title= mdArticle.title
+  else
+    title Xtreme
+
 block content
   if mdArticle
     h1.article-title= mdArticle.title
+    <button id="delete-button">Delete</button>
     != mdArticle.markdown
   else
     h2 Markdown Easy CMS

@@ -101,6 +101,8 @@ article {
   width: 65.66666666666666%;
   margin-left: 0%;
   margin-right: 3%;
+  position: relative;
+  transition: transform ease-in-out 0.4s;
 }
 article:before,
 article:after {
@@ -128,6 +130,14 @@ article:last-child {
   article:last-child {
     margin-right: auto;
   }
+}
+article img {
+  width: 100%;
+}
+article #delete-button {
+  position: absolute;
+  top: 40px;
+  right: 10px;
 }
 form>input {
   width: 95%;
