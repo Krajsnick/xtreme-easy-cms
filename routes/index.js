@@ -13,7 +13,7 @@ var articleSchema = new mongoose.Schema({
 var Article = mongoose.model('Article', articleSchema);
 
 router.use(function(req, res, next) {
-  Article.find({}, 'slug title -_id', function(err, articles) {
+  Article.find({}, 'slug title', function(err, articles) {
     res.locals.articles = articles;
     next();
   });
@@ -44,7 +44,7 @@ router.post('/add', function(req, res) {
     if (err) throw err;
 
     console.log('Article saved');
-    res.render('add', {posted: true});
+    res.redirect(article.slug);
   });
 });
 
