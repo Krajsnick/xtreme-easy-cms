@@ -12,7 +12,7 @@ var routes = require('./routes/index');
 var app = express();
 
 // Database
-mongoose.connect('mongodb://localhost/mardown-cms');
+mongoose.connect('mongodb://localhost/xtreme-easy-cms');
 
 
 // view engine setup
