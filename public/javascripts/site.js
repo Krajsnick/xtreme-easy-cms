@@ -11,7 +11,7 @@ $(document).ready(function() {
       type: 'DELETE',
       dataType: 'json',
       success: function(result) {
-        $('h1.article-title').append(' [DELETED]').nextAll().remove();
+        $('h1.article-title').append(' [DELETED]').nextAll().fadeOut('fast');
         menuLink.remove();
       }
     });
