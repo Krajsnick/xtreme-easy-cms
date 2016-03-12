@@ -9,6 +9,8 @@ block content
     h4 Article posted
   if error
     h4 Error: #{error}
+  if deleted
+    h4 Article deleted
   form(action='', method='post')
     input(type='text', name='title', placeholder='Title')
     textarea.markdown-edit(name='markdown')

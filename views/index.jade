@@ -9,8 +9,8 @@ block title
 block content
   if mdArticle
     h1.article-title= mdArticle.title
-    <button id="delete-button">Delete</button>
-    != mdArticle.markdown
+    a(href='/#{mdArticle.slug}', data-method='delete') Delete
+    != mdArticle.renderedHtml
   else
     h2 Markdown Easy CMS
     p Why dont you add an article?

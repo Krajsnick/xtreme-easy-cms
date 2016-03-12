@@ -7,6 +7,7 @@ var marked = require('marked');
 var articleSchema = new mongoose.Schema({
   title: String,
   markdown: String,
+  renderedHtml: String,
   slug: String
 });
 
@@ -37,6 +38,7 @@ router.post('/add', function(req, res) {
   var article = new Article({
     title: req.body.title,
     markdown: req.body.markdown,
+    renderedHtml: marked(req.body.markdown),
     slug: makeSlug(req.body.title)
   });
 
@@ -54,8 +56,17 @@ router.get('/:slug', function(req, res, next) {
 
   Article.findOne({ 'slug': slug  }, function(err, article) {
     if (err || !article) return next();
-    article.markdown = marked(article.markdown);
     res.render('index', {mdArticle: article});
+  });
+});
+
+// Delete article
+router.delete('/:slug', function(req, res, next) {
+  var slug = req.params.slug;
+
+  Article.remove({slug: slug}, function(err, removed) {
+    if (err) return next();
+    res.json({success: true, deleted: "everything"});
   });
 });
 
