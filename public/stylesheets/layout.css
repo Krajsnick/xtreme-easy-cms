@@ -5,6 +5,7 @@ body {
   margin: 0;
   padding: 0;
   font: 16px 'Open Sans', sans;
+  background: linear-gradient(90deg, #f9f7c8, #f7dbec);
 }
 a {
   text-decoration: none;
@@ -78,6 +79,7 @@ aside:last-child {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
+    line-height: 2em;
   }
   aside:first-child {
     margin-left: auto;
@@ -101,6 +103,7 @@ article {
   width: 65.66666666666666%;
   margin-left: 0%;
   margin-right: 3%;
+  line-height: 1;
   position: relative;
   transition: transform ease-in-out 0.4s;
 }
@@ -123,6 +126,8 @@ article:last-child {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
+    line-height: 1.25em;
+    padding: 0 3%;
   }
   article:first-child {
     margin-left: auto;
@@ -162,8 +167,7 @@ textarea.markdown-edit {
   transition: all 0.2s ease;
 }
 textarea.markdown-edit:focus {
-  background: #5c5c5c;
-  color: #fff;
+  background: #d7d3d3;
 }
 .article-title {
   border-bottom: solid 2px #e64e49;
