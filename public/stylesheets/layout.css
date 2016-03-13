@@ -5,7 +5,6 @@ body {
   margin: 0;
   padding: 0;
   font: 16px 'Open Sans', sans;
-  background: linear-gradient(90deg, #f9f7c8, #f7dbec);
 }
 a {
   text-decoration: none;
@@ -29,6 +28,25 @@ a::before {
   transform: scale(0, 1);
   transform-origin: left;
 }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 300;
+}
+h1 {
+  font-size: 1.68em;
+}
+pre {
+  padding: 15px;
+  background: rgba(255,255,255,0.5);
+  line-height: 1.5em;
+  overflow: auto;
+  white-space: pre;
+  word-wrap: normal;
+}
 section {
   *zoom: 1;
   width: auto;
@@ -47,9 +65,6 @@ section:after {
 }
 section:after {
   clear: both;
-}
-section h1 {
-  font-size: 1.68em;
 }
 aside {
   *zoom: 1;
@@ -103,7 +118,6 @@ article {
   width: 65.66666666666666%;
   margin-left: 0%;
   margin-right: 3%;
-  line-height: 1;
   position: relative;
   transition: transform ease-in-out 0.4s;
 }
@@ -126,7 +140,6 @@ article:last-child {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    line-height: 1.25em;
     padding: 0 3%;
   }
   article:first-child {
@@ -135,6 +148,9 @@ article:last-child {
   article:last-child {
     margin-right: auto;
   }
+}
+article p {
+  line-height: 1.5em;
 }
 article img {
   width: 100%;
