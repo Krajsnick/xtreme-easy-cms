@@ -61,6 +61,8 @@ aside
     text-overflow: ellipsis
     text-transform: uppercase
     white-space: nowrap
+    &.add-article
+      font-weight: bold
 
 article
   col(2/3)
@@ -74,10 +76,18 @@ article
     line-height: 1.5em
   img
     width: 100%
-  #delete-button
+  .delete-link
     position: absolute
-    top: 40px
-    right: 10px
+    top: 2em
+    right: 1.5em
+    background: rgba($linkColor,0.08)
+    border: solid 1px $linkColor
+    border-radius: 3px
+    padding: 2px
+    z-index: 100
+    &:hover
+      background: rgba($linkColor,0.15)
+
 
 form>input
   width: 95%

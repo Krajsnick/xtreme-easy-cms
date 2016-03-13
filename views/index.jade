@@ -9,7 +9,7 @@ block title
 block content
   if mdArticle
     h1.article-title= mdArticle.title
-    a(href='/#{mdArticle.slug}', data-method='delete') Delete
+    a(href='/#{mdArticle.slug}', class='delete-link', data-method='delete') Delete
     != mdArticle.renderedHtml
   else
     h2 Markdown Easy CMS

@@ -13,7 +13,7 @@ html
   body
     section
       aside: ul
-        li: a(href="/add") Add Article
+        li: a(href="/add", class="add-article") Add Article
         each article in articles
           li: a(href="/#{article.slug}") #{article.title}
       article

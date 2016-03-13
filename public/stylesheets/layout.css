@@ -108,8 +108,14 @@ aside ul {
   list-style: none;
 }
 aside a {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
   text-transform: uppercase;
   white-space: nowrap;
+}
+aside a.add-article {
+  font-weight: bold;
 }
 article {
   *zoom: 1;
@@ -157,10 +163,18 @@ article p {
 article img {
   width: 100%;
 }
-article #delete-button {
+article .delete-link {
   position: absolute;
-  top: 40px;
-  right: 10px;
+  top: 2em;
+  right: 1.5em;
+  background: rgba(230,78,73,0.08);
+  border: solid 1px #e64e49;
+  border-radius: 3px;
+  padding: 2px;
+  z-index: 100;
+}
+article .delete-link:hover {
+  background: rgba(230,78,73,0.15);
 }
 form>input {
   width: 95%;
