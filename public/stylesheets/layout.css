@@ -41,7 +41,8 @@ h1 {
 }
 pre {
   padding: 15px;
-  background: rgba(255,255,255,0.5);
+  background: #fafafa;
+  border: solid 1px #afadad;
   line-height: 1.5em;
   overflow: auto;
   white-space: pre;
@@ -119,6 +120,7 @@ article {
   margin-left: 0%;
   margin-right: 3%;
   position: relative;
+  padding-right: 1.3em;
   transition: transform ease-in-out 0.4s;
 }
 article:before,
