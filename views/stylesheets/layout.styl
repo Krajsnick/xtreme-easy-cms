@@ -71,6 +71,12 @@ aside
     &.add-article
       font-weight: bold
 
+.fade-away
+  transform: scale(3)
+  opacity: 0
+
+  transition: transform ease 3s, opacity ease 2.5s 0.5s
+
 article
   col(2/3)
   +mobile()
@@ -78,7 +84,6 @@ article
     padding: 0 3%
   position: relative
   padding-right: 1.3em
-  transition: transform ease-in-out 0.4s
   p
     line-height: 1.5em
   img
