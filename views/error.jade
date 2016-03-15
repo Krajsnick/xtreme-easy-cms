@@ -5,4 +5,5 @@ block content
     #[span.error-header #{requestedURL}] not found
   h2= error.message
   h2= error.status
-  pre #{error.stack}
+  if error.stack
+    pre #{error.stack}
