@@ -15,17 +15,12 @@ $(document).ready(function() {
         .append(' [DELETED]')
         .nextAll()
         .add(menuLink)
-        .addClass('fade-away');
+        .addClass('fade-away')
+        .on("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function() {
+          $(this).remove();
+        });
       }
     });
   });
-
-  // $('article').on("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function() {
-  //   if ($(this).is('article')) {
-  //     $(this).off()
-  //     .html('<img src="https://www.colourbox.com/preview/8503702-deleted-stamp.jpg">')
-  //     .css('transform', 'scale(1)');
-  //   }
-  // });
 
 });
