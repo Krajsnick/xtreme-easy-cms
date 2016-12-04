@@ -27,9 +27,9 @@ app.use(function(req, res, next) {
   next();
 });
 if (process.env.NODE_ENV === 'production') {
-  app.use(logger('dev'));
-} else {
   app.use(logger());
+} else {
+  app.use(logger('dev'));
 }
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false, limit: '250kb' }));
