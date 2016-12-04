@@ -18,13 +18,19 @@ mongoose.connect('mongodb://localhost/xtreme-easy-cms');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
+app.enable('trust proxy');
+
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(function(req, res, next) {
   // TODO Middleware manipulate request or response objects
   next();
 });
-app.use(logger('dev'));
+if (process.env.NODE_ENV === 'production') {
+  app.use(logger('dev'));
+} else {
+  app.use(logger());
+}
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false, limit: '250kb' }));
 app.use(cookieParser());
