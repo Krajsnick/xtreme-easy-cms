@@ -23,4 +23,14 @@ $(document).ready(function() {
     });
   });
 
+  if ($('#editor').length) {
+    var quill = new Quill('#editor', {
+      theme: 'snow'
+    });
+  }
+  $('#articleForm').submit(function () {
+    var htmlContent = $('#editor').find('.ql-editor').html()
+    console.log("Editor content: " + htmlContent);
+    $('input[name="htmlContent"]').val(htmlContent);
+  })
 });

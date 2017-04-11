@@ -30,15 +30,15 @@ router.get('/add', function(req, res) {
 });
 
 router.post('/add', function(req, res) {
-  if (isEmpty(req.body.title) || isEmpty(req.body.markdown)) {
+  if (isEmpty(req.body.title) || isEmpty(req.body.htmlContent)) {
     res.render('add', {error: "Enter text in all fields"});
     return;
   }
 
   var article = new Article({
     title: req.body.title,
-    markdown: req.body.markdown,
-    renderedHtml: marked(req.body.markdown),
+    //markdown: req.body.markdown,
+    renderedHtml: req.body.htmlContent,
     slug: makeSlug(req.body.title)
   });
 

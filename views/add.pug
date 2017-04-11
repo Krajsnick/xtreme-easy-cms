@@ -11,8 +11,9 @@ block content
     h4 Error: #{error}
   if deleted
     h4 Article deleted
-  form(action='', method='post')
+  form(id='articleForm', action='', method='post')
     input(type='text', name='title', placeholder='Title')
-    textarea.markdown-edit(name='markdown')
+    input(type='hidden', name='htmlContent')
+    div#editor
+      p Some text
     input(type='submit' value='Post')
-  
