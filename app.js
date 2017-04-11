@@ -27,7 +27,7 @@ app.use(function(req, res, next) {
   next();
 });
 if (process.env.NODE_ENV === 'production') {
-  app.use(logger());
+  app.use(logger('combined'));
 } else {
   app.use(logger('dev'));
 }
