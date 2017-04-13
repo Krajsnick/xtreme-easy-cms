@@ -24,8 +24,21 @@ $(document).ready(function() {
   });
 
   if ($('#editor').length) {
+    var toolbarOptions = [
+      ['bold', 'italic', 'underline', 'strike'],
+      ['blockquote', 'code-block'],
+      [{ 'list': 'bullet' }],
+
+      [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+
+      [{ 'color': [] }, { 'background': [] }]
+    ];
+
     var quill = new Quill('#editor', {
-      theme: 'snow'
+      theme: 'snow',
+      modules: {
+        toolbar: toolbarOptions
+      }
     });
   }
   $('#articleForm').submit(function () {
