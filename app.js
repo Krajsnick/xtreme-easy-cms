@@ -2,10 +2,10 @@ var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
-var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var stylus = require('stylus');
 var mongoose = require('mongoose');
+var session = require('express-session');
 
 var routes = require('./routes/index');
 
@@ -31,9 +31,13 @@ if (process.env.NODE_ENV === 'production') {
 } else {
   app.use(logger('dev'));
 }
+app.use(session({
+  secret: 'tittut',
+  saveUninitialized: false,
+  resave: false
+}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false, limit: '250kb' }));
-app.use(cookieParser());
 app.use(stylus.middleware({
   src: path.join(__dirname, 'views'),
   dest: path.join(__dirname, 'public'),

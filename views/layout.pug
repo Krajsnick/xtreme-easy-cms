@@ -14,7 +14,10 @@ html
   body
     .top-menu
       .menu-links
-        a(href="/login") Log in
+        if (authorized)
+          a(href="/logout") Logout
+        else
+          a(href="/login") Login
     section
       aside: ul
         li: a(href="/add", class="add-article") Add Article

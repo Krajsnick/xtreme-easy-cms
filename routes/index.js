@@ -13,11 +13,47 @@ var articleSchema = new mongoose.Schema({
 
 var Article = mongoose.model('Article', articleSchema);
 
+function ensureAuth(req, res, next) {
+  if (!req.session.user) {
+    res.redirect('/login');
+  } else {
+    next();
+  }
+}
+
 router.use(function(req, res, next) {
   Article.find({}, 'slug title', function(err, articles) {
     res.locals.articles = articles;
     next();
   });
+
+  if (req.session.user) {
+    res.locals.authorized = true;
+  }
+});
+
+/* Login pages */
+router.get('/login', function (req, res) {
+  res.render('login')
+});
+
+router.post('/login', function (req, res) {
+  if (req.body.username && req.body.password) {
+    if (req.body.username === 'robban' && req.body.password === 'kaffe') {
+      req.session.user = req.body.username;
+      console.log(req.session);
+      res.redirect('/');
+    } else {
+      res.redirect('/login');
+    }
+  } else {
+    res.redirect('/login');
+  }
+});
+
+router.get('/logout', function (req, res) {
+  req.session.destroy();
+  res.redirect('/');
 });
 
 /* GET home page. */
@@ -25,11 +61,11 @@ router.get('/', function(req, res, next) {
   res.render('index');
 });
 
-router.get('/add', function(req, res) {
+router.get('/add', ensureAuth, function(req, res) {
   res.render('add');
 });
 
-router.post('/add', function(req, res) {
+router.post('/add', ensureAuth, function(req, res) {
   if (isEmpty(req.body.title) || isEmpty(req.body.htmlContent)) {
     res.render('add', {error: "Enter text in all fields"});
     return;
